@@ -1,0 +1,12 @@
+<div class="container">
+        <ul>
+            <li class="list"><a class="p-2" href="" [routerLink]="['/main']">Home</a></li>
+            <li *ngIf="!username" class="list"><a class="p-2" href="" [routerLink]="['/login']">Login</a></li>
+            <li class="list"><a class="p-2" href="" [routerLink]="['/register']">Register</a></li>
+            <li *ngIf="role && (role[0] !== 'ROLE_USER' || role?.length > 1) && username" class="list"><a class="p-2" href="" [routerLink]="['/userboard']">User Board</a></li>
+            <li *ngIf="username" class="float-right">
+                <span class="mr-2"> Welcome! {{username}}</span>
+                <button class="my-2 btn btn-info" type="submit" (click)=logout()>Logout</button>
+            </li>
+        </ul>
+</div>

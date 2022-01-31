@@ -1,1 +1,52 @@
-<p>registration works!</p>
+<div class="container">
+    <div class="row">
+        <form class="col-md-12 form-inline" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                <div class="card-body text-center ">
+                    <h2 class="card-title text-black py-3">Registration Page</h2>
+                    <div class="col-md-12">
+                        <div class="row my-3">
+                            <div class="col-lg-6">
+                                <label class="mr-2" for="username">Username: </label>
+                                <input type="text" formControlName="username" name="username" required>
+                                <div *ngIf="!registrationForm.get('username').value && registrationForm.get('username').touched" class="text-danger">Please enter username.</div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="mr-2" for="password" minlength="8">Password: </label>
+                                <input type="password" formControlName="password" name="password" required>
+                                <div *ngIf="!registrationForm.get('password').value && registrationForm.get('password').touched" class="text-danger">Please enter password.</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label class="mr-2" for="email">Email: </label>
+                                <input type="email" formControlName="email" name="email" required>
+                                <div *ngIf="!registrationForm.get('email').value && registrationForm.get('email').touched" class="text-danger">Please enter email.</div>
+                                <div *ngIf="registrationForm.get('email').errors && registrationForm.get('email').dirty" class="text-danger">"{{registrationForm.get('email').value}}" is not a proper email. Please enter a proper email.</div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="mr-2" for="role">Role: </label>
+                                <ng-select [items]="roles" formControlName="role" bindValue="value" bindLabel="label" name="role" placeholder="Please select a role" required></ng-select>
+                                <div *ngIf="!registrationForm.get('role').value && registrationForm.get('role').touched" class="text-danger">Please select a role.</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label class="mr-2" for="firstName">First Name: </label>
+                                <input type="text" formControlName="firstName" name="firstName" required>
+                                <div *ngIf="!registrationForm.get('firstName').value && registrationForm.get('firstName').touched" class="text-danger">Please enter username.</div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="mr-2" for="lastName">Last Name: </label>
+                                <input type="text" formControlName="lastName" name="lastName" required>
+                                <div *ngIf="!registrationForm.get('lastName').value && registrationForm.get('lastName').touched" class="text-danger">Please enter password.</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="py-3">
+                        <button class="btn btn-info" type="submit" >Submit</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="card my-5">
+            <div class="card-body">
+              <h2 class="card-title text-center text-black py-3">Welcome! {{username}} </h2>
+              <div *ngIf="username" class="text-center">
+                <div>Name: {{name}}</div>
+                <div>role: {{role}}</div>
+              </div>
+              <div class="text-center" *ngIf="!username">Please Login!</div>
+            </div>
+          </div>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+</div>

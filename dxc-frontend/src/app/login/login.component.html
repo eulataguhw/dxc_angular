@@ -1,14 +1,18 @@
 <div class="container">
     <div class="row">
         <form class="col-md-12" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <div class="card-body">
-                    <div class="d-inline-block col-lg-3">
-                        <label for="username">Username: </label>
+                <div class="card-body text-center ">
+                    <h2 class="card-title text-black py-3">Spring Boot - Angular Application</h2>
+                    <div class="table col-lg-3">
+                        <label class="mr-2" for="username">Username: </label>
                         <input type="text" formControlName="username" name="username" required>
+                        <div *ngIf="!loginForm.get('username').value && loginForm.get('username').touched" class="text-danger">Please enter username.</div>
                     </div>
-                    <div class="d-inline-block col-lg-3">
-                        <label for="password">Password: </label>
+                    
+                    <div class="table col-lg-3 mt-3">
+                        <label class="mr-2" for="password">Password: </label>
                         <input type="password" formControlName="password" name="password" required>
+                        <div *ngIf="!loginForm.get('password').value && loginForm.get('password').touched" class="text-danger">Please enter password.</div>
                     </div>
                     <div class="py-3">
                         <button class="btn btn-info" type="submit" >Submit</button>
