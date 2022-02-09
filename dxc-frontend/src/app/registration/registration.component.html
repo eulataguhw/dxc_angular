@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="loadHTML" class="container">
     <div class="row">
         <form class="col-md-12 form-inline" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
                 <div class="card-body text-center ">
@@ -11,9 +11,10 @@
                                 <div *ngIf="!registrationForm.get('username').value && registrationForm.get('username').touched" class="text-danger">Please enter username.</div>
                             </div>
                             <div class="col-lg-6">
-                                <label class="mr-2" for="password" minlength="8">Password: </label>
-                                <input type="password" formControlName="password" name="password" required>
+                                <label class="mr-2" for="password">Password: </label>
+                                <input type="password" formControlName="password" name="password" minlength="8" required>
                                 <div *ngIf="!registrationForm.get('password').value && registrationForm.get('password').touched" class="text-danger">Please enter password.</div>
+                                <div *ngIf="registrationForm.get('password').value && registrationForm.get('password').value.length < 8 && registrationForm.get('password').touched" class="text-danger">Password has to be longer than 8 characters.</div>
                             </div>
                         </div>
                         <div class="row">

@@ -38,15 +38,20 @@ export class LoginComponent implements OnInit {
    }
 
   async onSubmit() {
-    const username = this.loginForm.get('username').value;
-    const password = this.loginForm.get('password').value;
-    const res = await this.utilityService.submitAPI('signin', {username, password});  
-    if (res) {
-      this.tokenStorage.saveToken(res.accessToken);
-      this.tokenStorage.saveUser(res);
-      this.roles = this.tokenStorage.getUser().roles;
-      this.router.navigate(['main']);
+    if (this.loginForm.valid) {
+      const username = this.loginForm.get('username').value;
+      const password = this.loginForm.get('password').value;
+      const res = await this.utilityService.submitAPI('auth', 'signin', {username, password});  
+      if (res) {
+        this.tokenStorage.saveToken(res.accessToken);
+        this.tokenStorage.saveUser(res);
+        this.roles = this.tokenStorage.getUser().roles;
+        this.router.navigate(['main']);
+      }
+    } else {
+      this.loginForm.markAllAsTouched();
     }
+    
   }
 
 }

@@ -26,6 +26,7 @@ export class HeaderComponent {
 
   logout() {
     this.tokenStorage.signOut();
+    alert(`You have successfully logout`);
     this.router.navigate(['/']);
     this.cdr.detectChanges();
   }

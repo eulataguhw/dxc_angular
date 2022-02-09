@@ -19,7 +19,7 @@ export class UserBoardComponent implements OnInit {
   }
 
   async retrieveUserData() {
-    this.userData = await this.utilityService.retrieveAPI('getUser');
+    this.userData = await this.utilityService.retrieveAPI('user', 'getUser');
   }
 
 }

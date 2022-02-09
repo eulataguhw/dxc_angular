@@ -15,7 +15,9 @@ import { HeaderComponent } from './header/header.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { UserBoardComponent } from './user-board/user-board.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import { MatTableModule } from '@angular/material/table'
     LoginComponent,
     MainPageComponent,
     HeaderComponent,
-    UserBoardComponent
+    UserBoardComponent,
+    PagenotfoundComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,
